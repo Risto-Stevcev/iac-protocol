@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+import sys
+sys.path.append("..")
+
 import iac.parser as parser
 import atexit
 import os

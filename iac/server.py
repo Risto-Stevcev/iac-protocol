@@ -1,8 +1,10 @@
 #!/usr/bin/env python
+import sys
+sys.path.append("..")
+
 import socket
 import select
 import threading
-import sys
 import argparse
 import iac.parser as parser
 
