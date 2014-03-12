@@ -26,6 +26,8 @@ Contents:
    interfaces.rst
    interpreter.rst
    server.rst
+   plugin.rst
+   gnumeric.rst
    README.rst
 
 
