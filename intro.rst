@@ -9,7 +9,7 @@ Introduction
 
 The IAC (inter-application communication) protocol is a protocol/interface the enables 
 inter-application communication and scripting. It provides a means to access the internal
-functionality of application and a means to create automation scripts.
+functionality of an application and a means to create automation scripts.
 
 Have you ever wanted a way to programmatically change the contents of a spreadsheet or
 document? have you wanted to automate some process for a document with your favorite 
@@ -28,7 +28,7 @@ If you would like to contribute and the plugin interface for the application is 
 Python, please send me an email so that I can help you create an interface. The license is
 BSD and allows you to create a fork of this project with the proper credits, but in order 
 to keep everything standardized and in one place, I recommend sending a pull request and 
-contributing to this project directly. I'll strongly consider any differences in design
+contributing to this project directly. I'll strongly consider any suggestions in design
 implementation.
 
 .. warning::

@@ -14,7 +14,7 @@ of its introspective capabilities, its use as a glue language, and its general a
 
 The power of the parser and lexer are intentionally stripped down because calculations should be 
 performed on the client-side. The protocol specification is simple and concerned only with object 
-creation and functional calls.
+creation and functional calls to the provided interface.
 
 
 .. _lexer:
@@ -39,7 +39,7 @@ escape sequences. The lexical definitions are as follows:
    lowercase: "a"..."z"
    uppercase: "A"..."Z"
    digit: "0"..."9"
-
+ 
 
 .. _operators:
 
@@ -95,7 +95,7 @@ looks for the passed in scope name in the :mod:`interfaces` module.
 The scoped statement is the entry point for the parser. It is defined as:
 
 .. productionlist::
-   scoped_statement: `scope` -> `statement`
+   scoped_statement: `scope` "->" `statement`
 
 
 
@@ -111,7 +111,7 @@ Statements are used to assign or call a value. The syntax is as follows:
 
 .. productionlist::
    statement: `expression`
-            : | `identifier` = `expression`
+            : | `identifier` "=" `expression`
 
 
 
@@ -126,12 +126,12 @@ Expressions
 Expressions are used to call a value or procedure. The syntax is as follows:
 
 .. productionlist::
-   expression: `identifier`
-            : | `identifier`()
-            : | `identifier`(`parameters`)
-            : | `identifier`.`identifier`()
-            : | `identifier`.`identifier`(`parameters`)
-   parameters: `parameters`, `optional_argument`
+   expression: `identifier`"()"
+            : | `identifier` 
+            : | `identifier`"("`parameters`")"
+            : | `identifier`"."`identifier`"()"
+            : | `identifier`"."`identifier`"("`parameters`")"
+   parameters: `parameters`"," `optional_argument`
             : | `optional_argument`
    optional_argument: `stringliteral` | `digit` 
 

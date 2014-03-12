@@ -17,6 +17,8 @@ Have you ever wanted to program or script something using the internal functiona
 
 Create the automation scripts of your dreams, and contribute to the growing body of supported programs.
 
+View the package in the PyPI repository_ 
+
 
 Requirements
 ============
@@ -27,7 +29,9 @@ Requirements
 Usage
 =====
 
-**The easy way:** run ``pip install --user iac-protocol`` so pip can download it from PyPI, and go to step 5 on how to use the protocol.
+**The easy way:** 
+
+Run ``pip install --user iac-protocol`` so pip can download it from PyPI, and go to step 5 on how to use the protocol.
 
 #. Clone the repository.
 
@@ -58,3 +62,5 @@ To update the version:
 To uninstall, run ``pip uninstall iac-protocol``.
 
 Please read the **official documentation** for complete instructions.
+
+.. _repository: https://pypi.python.org/pypi/iac-protocol

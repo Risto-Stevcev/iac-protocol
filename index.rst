@@ -3,8 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to iac-protocol's documentation!
-========================================
+The IAC protocol
+================
+
+The IAC (*inter-application communication*) protocol is a protocol that enables inter-application communication and scripting. 
+
+Have you ever wanted to program or script something using the internal functionality of a program, such as a document or spreadsheet program? This interface and protocol specification lets you do just that!
+
+Create the automation scripts of your dreams, and contribute to the growing body of supported programs.
+
+View the package in the PyPI repository_ 
+
+
 
 Contents:
 
@@ -13,6 +23,9 @@ Contents:
 
    intro.rst
    protocol.rst
+   interfaces.rst
+   interpreter.rst
+   server.rst
    README.rst
 
 
@@ -24,3 +37,4 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+.. _repository: https://pypi.python.org/pypi/iac-protocol
