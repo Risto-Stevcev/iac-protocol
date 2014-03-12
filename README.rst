@@ -1,3 +1,13 @@
+.. _readme:
+
+*******************
+IAC protocol readme
+*******************
+
+.. index::
+   single: readme
+
+
 IAC protocol
 ============
 
@@ -16,6 +26,8 @@ Requirements
 
 Usage
 =====
+
+**The easy way:** run ``pip install --user iac-protocol`` so pip can download it from PyPI, and go to step 5 on how to use the protocol.
 
 #. Clone the repository.
 
