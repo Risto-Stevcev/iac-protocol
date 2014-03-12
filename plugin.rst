@@ -13,12 +13,6 @@ IAC protocol plugin implementation
 This page provides a guide on how to contribute and develop an application plugin for the IAC protocol.
 The plugin implementation is fairly straightforward.
 
-.. warning::
-   The plugin interface currently uses static calls to the various functions. This works fine for most
-   use cases, but ideally it should support multi-threading and multiple client access without creating
-   race conditions. As a result, this implementation will soon be deprecated and will be replaced by
-   object instances and regular non-static functions. Don't let this deter you from contributing right now, 
-   because the implementation will not change much.
 
 
 Steps
