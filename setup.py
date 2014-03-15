@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='iac-protocol',
-    version='0.1',
+    version='0.202',
     license='BSD',
     author='Risto Stevcev',
     author_email='risto1@gmail.com',

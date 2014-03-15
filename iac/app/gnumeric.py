@@ -83,9 +83,11 @@ class Interface(object):
         if (string.startswith('"') and string.endswith('"')) or \
                 (string.startswith("'") and string.endswith("'")):
             string = string[1:-1]
-
-        cell.set_text(string)
-        return True
+        try:
+            cell.set_text(string)
+            return True
+        except:
+            return False
 
     @staticmethod
     def get_text(cell):

@@ -9,11 +9,11 @@
 .. sectionauthor:: Risto Stevcev <risto1@gmail.com>.
 
 
-The :mod:`interpreter` module is the interpreter for the IAC protocol. It provides a
-command-line shell to execute and try out commands for simple use. If you are interested in
-writing an automation script, check out the :mod:`server` module instead. But feel free to
-use this interpreter to test out commands for a particular plug-in you are interested in using, 
-or if you are developing for the protocol. 
+The :mod:`interpreter` module is the interpreter for the IAC protocol. Like most interpreters, 
+it's a simple *read, eval, print* loop. It provides a command-line shell to execute and try out 
+commands for simple use. If you are interested in writing an automation script, check out the 
+:mod:`server` module instead. But feel free to use this interpreter to test out commands for a 
+particular plug-in you are interested in using, or if you are developing for the protocol. 
 
 
 

@@ -19,9 +19,9 @@ corresponding plug-in implementation.
 Example
 -------
 
-Here is an example of the :mod:`interfaces` module from version 0.1::
+Here is an example of the :mod:`interfaces` module from version 0.2::
 
-   #import iac.app.libreoffice.calc as localc
+   import iac.app.libreoffice.calc as localc
    import iac.app.libreoffice.writer as lowriter
    import iac.app.gnumeric as gnumeric
 
@@ -44,9 +44,18 @@ or Python won't recognize it as a package and the IAC protocol won't be able to
 register it.
 
 You can specify more than one application so that you can automate between
-multiple programs. Unfortunately, as of the time writing this document, there
-are no known ways to connect multiple LibreOffice applications to it's corresponding
-UNO bridge. In this example, LibreOffice Calc is commented out so that the
-IAC protocol can run properly. If you need spreadsheet and document automation at
-the same time, you can do your spreadsheet automation with Gnumeric, or you can run
-multiple instances of the protocol and UNO using different ports.
+multiple programs. If you don't want to modify ``interfaces.py`` directly, you can
+use the :mod:`modify_interfaces` module.
+
+To uncomment a module with the :mod:`modify_interfaces` module, specify the application 
+name. Here's an example to uncomment LibreOffice Calc::
+   
+   python -c "import iac.modify_interfaces; iac.modify_interfaces.modify('lowriter')"
+
+To comment it back in order to disable it, you can do the following::
+
+   python -c "import iac.modify_interfaces; iac.modify_interfaces.modify('lowriter', uncomment=False)"
+
+**All application interfaces are commented out by default. Please uncomment any 
+application you're interested in using, and read the installation instructions 
+for that application in this documentation.**

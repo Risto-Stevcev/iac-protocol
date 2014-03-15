@@ -1,3 +1,13 @@
+"""
+To start UNO for both Calc and Writer:
+(Note that if you use the current_document command, it will open the Calc's current document since it's the first switch passed)
+libreoffice "--accept=socket,host=localhost,port=18100;urp;StarOffice.ServiceManager" --norestore --nofirststartwizard --nologo --calc --writer
+
+To start UNO without opening a libreoffice instance, use the --headless switch:
+(Note that this doesn't allow to use the current_document command)
+libreoffice --headless "--accept=socket,host=localhost,port=18100;urp;StarOffice.ServiceManager" --norestore --nofirststartwizard --nologo --calc --writer
+"""
+
 from uno import getComponentContext
 from com.sun.star.connection import ConnectionSetupException
 from com.sun.star.awt.FontWeight import BOLD
@@ -13,7 +23,7 @@ class Message(object):
 
 
 # Connect to libreoffice using UNO
-UNO_PORT = 18101
+UNO_PORT = 18100
 try:
     localContext = getComponentContext()
     resolver = localContext.ServiceManager.createInstanceWithContext(
@@ -84,6 +94,23 @@ class Interface(object):
         xSelectionSupplier = document.getCurrentController()
         xIndexAccess = xSelectionSupplier.getSelection() 
         return xIndexAccess.getByIndex(0)
+
+    @staticmethod
+    def get_document_text(document):
+        """[document].get_document_text()"""
+        return document.getText()
+
+    @staticmethod
+    def set_text(text_range, string):
+        """[text_range].set_text(['string'])"""
+        if (string.startswith('"') and string.endswith('"')) or \
+                (string.startswith("'") and string.endswith("'")):
+            string = string[1:-1]
+        try:
+            text_range.setString(string)
+            return True
+        except:
+            return False
 
     @staticmethod
     def get_text(text_range):

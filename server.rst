@@ -16,7 +16,7 @@ supports socket programming.
 
 Most use cases would be primarily interested in script automation locally, but since this 
 is a server, it is capable of handling remote automation calls as well. This makes the
-protocol incredibly flexible.
+interface incredibly flexible.
 
 
 
@@ -28,21 +28,7 @@ application directory, or by importing it directly and running its ``main()`` me
 
    python -c "import iac.server as iacs; iacs.main()"
 
-Here is a sample automation shell script using Gnumeric::
-
-    #!/usr/bin/env bash
-    # Netcat: -u is for UDP, -c closes the connection on EOF
-
-    PORT=14733
-    if [[ $# -eq 3 ]]; then
-        echo -e "gnumeric -> doc = new_document(1)\n" | nc -uc localhost $PORT 
-        echo -e "gnumeric -> sheet = doc.get_sheet(0)\n" | nc -uc localhost $PORT
-        echo -e "gnumeric -> cell = sheet.fetch_cell('$1')\n" | nc -uc localhost $PORT
-        echo -e "gnumeric -> cell.set_text('$2')\n" | nc -uc localhost $PORT
-        echo -e "gnumeric -> doc.save_as('$3')\n" | nc -uc localhost $PORT
-    else
-        echo "Usage: $0 [cell] [string] [path]"
-    fi
+See the :ref:`gnumeric`, :ref:`lowriter` or :ref:`localc` sections for example ``Hello, World!`` shell scripts.
 
 
 

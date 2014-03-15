@@ -1,6 +1,7 @@
-import iac.interfaces as interfaces
-
-__package__ = 'iac'
+if __package__ == 'iac':
+    import iac.interfaces as interfaces
+else:
+    import interfaces
 
 class Command(object):
     '''Create command for execution after parsing'''

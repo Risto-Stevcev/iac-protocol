@@ -1,13 +1,12 @@
 #!/usr/bin/env python
-import sys
-sys.path.append("..")
-
-import iac.parser as parser
+if __package__ == 'iac':
+    import iac.parser as parser
+else:
+    import parser
 import atexit
 import os
 import readline
 import rlcompleter
-
 
 historyPath = os.path.expanduser("~/.pyhistory")
 

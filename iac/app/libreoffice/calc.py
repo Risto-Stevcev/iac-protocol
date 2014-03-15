@@ -1,3 +1,13 @@
+"""
+To start UNO for both Calc and Writer:
+(Note that if you use the current_document command, it will open the Calc's current document since it's the first switch passed)
+libreoffice "--accept=socket,host=localhost,port=18100;urp;StarOffice.ServiceManager" --norestore --nofirststartwizard --nologo --calc --writer
+
+To start UNO without opening a libreoffice instance, use the --headless switch:
+(Note that this doesn't allow to use the current_document command)
+libreoffice --headless "--accept=socket,host=localhost,port=18100;urp;StarOffice.ServiceManager" --norestore --nofirststartwizard --nologo --calc --writer
+"""
+
 from uno import getComponentContext
 from com.sun.star.connection import ConnectionSetupException
 from com.sun.star.awt.FontWeight import BOLD
@@ -35,6 +45,17 @@ class Interface(object):
     def current_document():
         """current_document()"""
         return desktop.getCurrentComponent()
+
+    @staticmethod
+    def load_document(path):
+        """load_document(['path'])"""
+        url = systemPathToFileUrl(path)
+        return desktop.loadComponentFromURL(url ,"_blank", 0, ())
+
+    @staticmethod
+    def new_document():
+        """new_document()"""
+        return desktop.loadComponentFromURL("private:factory/scalc","_blank", 0, ()) 
     
     @staticmethod
     def current_sheet(document):

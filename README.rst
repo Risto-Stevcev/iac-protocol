@@ -33,6 +33,8 @@ Usage
 
 Run ``pip install --user iac-protocol`` so pip can download it from PyPI, and go to step 5 on how to use the protocol.
 
+**The long way:**
+
 #. Clone the repository.
 
 #. Run ``python setup.py sdist`` from the project directory to create a
@@ -41,7 +43,8 @@ Run ``pip install --user iac-protocol`` so pip can download it from PyPI, and go
 #. Run ``pip install --user iac*.tar.gz`` from the new ``dist/``
    directory to install the package.
 
-#. Enable an application for automation under the ``interfaces.py`` file, and read the official documentation for any additional setup instructions.
+#. Enable an application for automation under the ``interfaces.py`` file manually or by using the ``modify_interfaces`` module,
+   and read the official documentation for any additional setup instructions.
 
 #. Run ``python -c "import iac.interpreter as iaci; iaci.main()"`` to
    play with the interactive interpreter.

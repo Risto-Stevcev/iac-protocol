@@ -25,7 +25,8 @@ Python is perfect for this protocol because it's introspective capabilities make
 easier to find properties and functionality when documentation is scarce. 
 
 If you would like to contribute and the plugin interface for the application is not in 
-Python, please send me an email so that I can help you create an interface. The license is
+Python, see the :ref:`protocol` for how to implement the IAC protocol. If you still need 
+help, don't hesitate to send me an email so that I can help you create an interface. The license is
 BSD and allows you to create a fork of this project with the proper credits, but in order 
 to keep everything standardized and in one place, I recommend sending a pull request and 
 contributing to this project directly. I'll strongly consider any suggestions in design

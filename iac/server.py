@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 import sys
-sys.path.append("..")
-
 import socket
 import select
 import threading
 import argparse
-import iac.parser as parser
+
+if __package__ == 'iac':
+    import iac.parser as parser
+else:
+    import parser
 
 __package__ = "IAC Protocol"
 __author__ = "Risto Stevcev"
