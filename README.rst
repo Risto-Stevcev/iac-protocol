@@ -64,6 +64,7 @@ To update the version:
 
 To uninstall, run ``pip uninstall iac-protocol``.
 
-Please read the **official documentation** for complete instructions.
+Please read the official documentation_ for complete instructions.
 
 .. _repository: https://pypi.python.org/pypi/iac-protocol
+.. _documentation: http://pythonhosted.org/iac-protocol/
