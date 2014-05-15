@@ -2,14 +2,19 @@ from setuptools import setup, find_packages
 
 setup(
     name='iac-protocol',
-    version='0.202',
+    version='0.3',
     license='BSD',
     author='Risto Stevcev',
     author_email='risto1@gmail.com',
     url='https://github.com/Risto-Stevcev/iac-protocol',
     long_description=open("README.rst","r").read(),
     packages=find_packages(),
-    description="An protocol/interface that enables inter-application communication and scripting.",
+    description="An interface/protocol that provides inter-application communication and scripting.",
+    entry_points = {
+        'console_scripts': ['iacs=iac.server:main',
+                            'iaci=iac.interpreter:main',
+                            'iacmodify=iac.modify_interfaces:main'],
+    },
     classifiers=[
         'Development Status :: 4 - Beta', 
         'Environment :: Console',

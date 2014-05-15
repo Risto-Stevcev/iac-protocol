@@ -28,6 +28,10 @@ application directory, or by importing it directly and running its ``main()`` me
 
    python -c "import iac.server as iacs; iacs.main()"
 
+   --or--
+
+   iacs
+
 See the :ref:`gnumeric`, :ref:`lowriter` or :ref:`localc` sections for example ``Hello, World!`` shell scripts.
 
 

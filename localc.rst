@@ -34,11 +34,11 @@ Instructions
 #. Run the UNO bridge. The UNO bridge is a server that provides a programming interface to access the internals of a LibreOffice document. 
  
    #. You can run multiple LibreOffice applications by passing them in as switches. If you want to use the ``current_document()`` command, then it will 
-      only work on the first switch passed, in this case Calc. Here is the command to run UNO for Calc and Calc:
+      only work on the first switch passed, in this case Calc. Here is the command to run UNO for Calc and Writer: 
       ``libreoffice "--accept=socket,host=localhost,port=18100;urp;StarOffice.ServiceManager" --norestore --nofirststartwizard --nologo --calc --calc``
    
    #. If you want to run the bridge without opening any application, pass in the switch ``--headless``. You cannot use the ``current_document()`` command 
-      in this mode because no application is running. Here is the command to write UNO for Calc and Calc:
+      in this mode because no application is running. Here is the command to write UNO for Calc and Writer:
       ``libreoffice --headless "--accept=socket,host=localhost,port=18100;urp;StarOffice.ServiceManager" --norestore --nofirststartwizard --nologo --calc --calc`` 
 
 #. Make sure that the LibreOffice applications you want to use are enabled in the ``interfaces.py`` file. You can access LibreOffice calc using the ``localc`` 
@@ -63,7 +63,7 @@ Here is a sample demonstrating LibreOffice Calc's functionality. First, run the 
 
    libreoffice "--accept=socket,host=localhost,port=18100;urp;StarOffice.ServiceManager" --norestore --nofirststartwizard --nologo --calc
 
-Then run the following ``Hello, World!`` shell script::
+Run the server (``iacs``) and then run the following ``Hello, World!`` shell script::
 
     #!/usr/bin/env bash
     # Netcat: -u is for UDP, -c closes the connection on EOF
@@ -79,6 +79,16 @@ Then run the following ``Hello, World!`` shell script::
         echo "Usage: $0 [cell] [string] [path]"
     fi
 
+
+Or try the interpreter by directing the following as stdin::
+
+    localc -> doc = new_document()
+    localc -> sheet = doc.current_sheet()
+    localc -> cell = sheet.fetch_cell('A1')
+    localc -> cell.set_text('Hello, World!')
+    localc -> doc.save_as('/home/gyeh/hello.ods')
+
+And then run it as something like ``iaci < hello-localc.txt`` (assuming it's saved as that name).
 
 
 Commands

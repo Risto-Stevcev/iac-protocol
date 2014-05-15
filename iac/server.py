@@ -10,9 +10,9 @@ if __package__ == 'iac':
 else:
     import parser
 
-__package__ = "IAC Protocol"
-__author__ = "Risto Stevcev"
-__version__ = "0.1"
+title = 'Inter-Application Communication protocol'
+__author__ = 'Risto Stevcev'
+__version__ = '0.205'
 
 
 def enum(**enums):
@@ -132,7 +132,7 @@ class Server(object):
             if client == self.socket:
                 message, client_address = self.socket.recvfrom(self.buffer_size)
                 ip, port = client_address
-                self.log_file.write("%s [%s:%d]: %s\n" % (Message.client_sent, ip, port, message))
+                self.log_file.write("%s [%s:%d]: %s\n" % (Message.client_sent, ip, port, message.strip()))
 
                 result = parser.parse(message.decode())
                 if result is True or result is False:
@@ -155,7 +155,7 @@ class Server(object):
         self.log_file.write("%s\n" % Message.exit)
 
 # Parse command line arguments
-argparser = argparse.ArgumentParser(description='Server for %s %s - by %s.' % (__package__, __version__, __author__))
+argparser = argparse.ArgumentParser(description='Server for %s %s - by %s.' % (title, __version__, __author__))
 argparser.add_argument('-p', '--port', type=int, nargs=1, default=Server.PORT, 
         help='server port (default: %d)' % Server.PORT)
 argparser.add_argument('-s', '--buffer-size', type=int, nargs=1, default=Server.BUFFER_SIZE, 

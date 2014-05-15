@@ -27,14 +27,16 @@ Here is an example of the :mod:`interfaces` module from version 0.2::
 
 All of the application implementations are stored in the *app/* folder. The
 folder is treated like a package so that Python can find the applications. 
-All registered applications must be stored in teh *app/* folder and they must
+All registered applications must be stored in this *app/* folder and they must
 use the ``import iac.app.`` prefix in order to be registered properly by the
 protocol. 
 
 In order to avoid having to type ``iac.app.libreoffice.writer ->`` *(expression)*
-as the namespace for the scope for every command, it is given the shortcut name 
+as the namespace for the scope for every command, you can give the shortcut name 
 ``lowriter`` so that each command can simply be written as: 
-``lowriter ->`` *(expression)*.
+``lowriter ->`` *(expression)*.   
+To enable a shortcut name, add the import line to include "as *(shortcut name)*" 
+like in the example shown above.
 
 If the application contains multiple sub-applications, such as an office suite like
 LibreOffice, you can create a new package under the *app/* folder with the name
@@ -45,16 +47,8 @@ register it.
 
 You can specify more than one application so that you can automate between
 multiple programs. If you don't want to modify ``interfaces.py`` directly, you can
-use the :mod:`modify_interfaces` module.
-
-To uncomment a module with the :mod:`modify_interfaces` module, specify the application 
-name. Here's an example to uncomment LibreOffice Calc::
-   
-   python -c "import iac.modify_interfaces; iac.modify_interfaces.modify('lowriter')"
-
-To comment it back in order to disable it, you can do the following::
-
-   python -c "import iac.modify_interfaces; iac.modify_interfaces.modify('lowriter', uncomment=False)"
+use the :mod:`modify_interfaces` module. See the :mod:`modify_interfaces` section 
+for more details.
 
 **All application interfaces are commented out by default. Please uncomment any 
 application you're interested in using, and read the installation instructions 

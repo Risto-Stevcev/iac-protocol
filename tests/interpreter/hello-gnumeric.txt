@@ -1,0 +1,5 @@
+gnumeric -> doc = new_document(1)
+gnumeric -> sheet = doc.get_sheet(0)
+gnumeric -> cell = sheet.fetch_cell('A1')
+gnumeric -> cell.set_text('Hello, World!')
+gnumeric -> doc.save_as('{path}')

@@ -1,0 +1,17 @@
+*.*~
+*.pyc
+*.swo
+Makefile
+*.out
+parser.out
+parsetab.py
+make.bat
+Makefile
+iac_protocol.egg-info/
+__pycache__
+conf.py
+.idea
+_build
+build
+dist
+samples

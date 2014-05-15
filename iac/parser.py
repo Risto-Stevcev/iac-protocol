@@ -1,3 +1,5 @@
+import sys
+
 if __package__ == 'iac':
     import iac.interfaces as interfaces
 else:
@@ -21,8 +23,12 @@ class Command(object):
     
     @staticmethod
     def parameters_to_string():
-        return ','.join(["'%s'" % parameter if type(parameter) is str else str(parameter) \
-                for parameter in Command.parameters])
+        if sys.version_info.major >= 3:
+            return ','.join(["'%s'" % parameter if type(parameter) is str else str(parameter) \
+                    for parameter in Command.parameters])
+        else:
+            return ','.join(["'%s'" % str(parameter) if type(parameter) is unicode else str(parameter) \
+                    for parameter in Command.parameters])
 
     @staticmethod
     def to_string():
@@ -122,10 +128,10 @@ def p_expression_function(t):
                | NAME DOT NAME LPAREN parameters RPAREN
                | NAME DOT NAME LPAREN RPAREN
     '''
-    if len(t) == 6 and t[2] is ".":
+    if len(t) == 6 and t[2] == '.':
         Command.object = t[1]
         Command.function = t[3]
-    elif len(t) == 7 and t[2] is ".":
+    elif len(t) == 7 and t[2] == '.':
         Command.object = t[1]
         Command.function = t[3]
         Command.parameters = t[5]
@@ -167,7 +173,7 @@ def parse(user_input):
     if user_input:
         Command.clear()
         yacc.parse(user_input)
-        
+         
         try:
             if Command.variable and Command.function:
                 exec(Command.to_string())

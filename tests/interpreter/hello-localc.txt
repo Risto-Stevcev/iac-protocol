@@ -1,0 +1,5 @@
+localc -> doc = new_document()
+localc -> sheet = doc.current_sheet()
+localc -> cell = sheet.fetch_cell('A1')
+localc -> cell.set_text('Hello, World!')
+localc -> doc.save_as('{path}')

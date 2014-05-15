@@ -63,7 +63,7 @@ Here is a sample demonstrating LibreOffice Writer's functionality. First, run th
 
    libreoffice "--accept=socket,host=localhost,port=18100;urp;StarOffice.ServiceManager" --norestore --nofirststartwizard --nologo --writer
 
-Then run the following ``Hello, World!`` shell script::
+Run the server (``iacs``) and then run the following ``Hello, World!`` shell script::
 
     #!/usr/bin/env bash
     # Netcat: -u is for UDP, -c closes the connection on EOF
@@ -77,6 +77,15 @@ Then run the following ``Hello, World!`` shell script::
     else
         echo "Usage: $0 [string] [path]"
     fi
+
+Or try the interpreter by directing the following as stdin::
+
+    lowriter -> doc = new_document()
+    lowriter -> text = doc.get_document_text()
+    lowriter -> text.set_text('Hello, World!')
+    lowriter -> doc.save_as('/home/gyeh/hello.odt')
+
+And then run it as something like ``iaci < hello-lowriter.txt`` (assuming it's saved as that name).
 
 
 

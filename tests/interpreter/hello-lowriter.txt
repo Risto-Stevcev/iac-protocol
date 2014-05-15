@@ -1,0 +1,4 @@
+lowriter -> doc = new_document()
+lowriter -> text = doc.get_document_text()
+lowriter -> text.set_text('Hello, World!')
+lowriter -> doc.save_as('{path}')

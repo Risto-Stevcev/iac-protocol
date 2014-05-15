@@ -4,6 +4,7 @@ if __package__ == 'iac':
 else:
     import parser
 import atexit
+import sys
 import os
 import readline
 import rlcompleter
@@ -25,12 +26,16 @@ del os, atexit, readline, rlcompleter, save_history, historyPath
 def main():
     while True:
         try:
-            user_input = input('iaci> ')
+            if sys.version_info.major >= 3:
+                user_input = input('iaci> ')
+            else:
+                user_input = unicode(raw_input('iaci> '))
         except EOFError:
             break
         if user_input:
             result = parser.parse(user_input)
-            print(".....", result)
+            print("....."), 
+            print(result)
 
 
 if __name__ == "__main__":

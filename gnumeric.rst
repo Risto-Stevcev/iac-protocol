@@ -22,7 +22,6 @@ This page provides a guide on how to setup and use Gnumeric for the IAC protocol
     for more details.
 
 
-
 Instructions
 ============
 
@@ -39,7 +38,7 @@ Instructions
    automation scripts! See the :mod:`server` module for a sample automation shell script.
 
 If you wish to contribute to improving Gnumeric's functionality, view the Gnumeric plugin documentation for Python or 
-discover it's properties using Python's object introspection on Gnumeric's module ``Gnm``. 
+discover it's properties using Python's object introspection on Gnumeric's module ``gi.repository``. 
 
 Then, clone the project repository from the project's GitHub_ page, add your modified application, and submit a pull request to be reviewed. If 
 your additions to the application follow the protocol convention and it doesn't contain any obvious errors, it will be
@@ -50,7 +49,8 @@ accepted! See :ref:`plugin` for more details.
 Example
 =======
 
-Here is an example ``Hello, World!`` shell script::
+Here is an example ``Hello, World!`` shell script.  
+Run the server (``iacs``) and try this script::
 
     #!/usr/bin/env bash
     # Netcat: -u is for UDP, -c closes the connection on EOF
@@ -67,6 +67,15 @@ Here is an example ``Hello, World!`` shell script::
     fi
 
 
+Or try the interpreter by directing the following as stdin::
+
+    gnumeric -> doc = new_document(1)
+    gnumeric -> sheet = doc.get_sheet(0)
+    gnumeric -> cell = sheet.fetch_cell('A1')
+    gnumeric -> cell.set_text('Hello, World!')
+    gnumeric -> doc.save_as('./hello.gnumeric')
+
+And then run it as something like ``iaci < hello-gnumeric.txt`` (assuming it's saved as that name).
 
 Commands
 ========
