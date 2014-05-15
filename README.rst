@@ -23,7 +23,7 @@ View the package in the PyPI repository_
 Requirements
 ============
 
-| Python 3+
+| Python 2+
 
 
 Usage
@@ -31,7 +31,8 @@ Usage
 
 **The easy way:** 
 
-Run ``pip install --user iac-protocol`` so pip can download it from PyPI, and go to step 5 on how to use the protocol.
+Run ``pip install --user iac-protocol`` (or omit --user for global install) so pip can download it from PyPI 
+(may need sudo/root), and go to step 5 on how to use the protocol.
 
 **The long way:**
 
@@ -40,18 +41,19 @@ Run ``pip install --user iac-protocol`` so pip can download it from PyPI, and go
 #. Run ``python setup.py sdist`` from the project directory to create a
    source distribution.
 
-#. Run ``pip install --user iac*.tar.gz`` from the new ``dist/``
-   directory to install the package.
+#. Run ``pip install --user iac*.tar.gz`` (or omit --user for a global install) from the new ``dist/``
+   directory to install the package (may need sudo/root).
 
-#. Enable an application for automation under the ``interfaces.py`` file manually or by using the ``modify_interfaces`` module,
-   and read the official documentation for any additional setup instructions.
+#. Enable an application for automation from the command-line (may need sudo/root):
 
-#. Run ``python -c "import iac.interpreter as iaci; iaci.main()"`` to
-   play with the interactive interpreter.
+   ``iacmodify -s`` to show all available interfaces
+   ``iacmodify --enable -a lowriter`` to enable libreoffice writer
+
+#. Run ``iaci`` from the command-line to play with the interactive interpreter.
 
    *or*
 
-   Run ``python -c "import iac.server as iacs; iacs.main()"`` to quickstart the server.
+   Run ``iacs`` to quickstart the server.
 
 To update the version:
 
